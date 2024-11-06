@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".joinActivity">
+
+    <TextView
+        style="@style/titleStyle"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="회원가입" />
+
+    <TextView
+        style="@style/subtitleStyle"
+        android:text="생년월일" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner" />
+
+    <TextView
+        style="@style/subtitleStyle"
+        android:text="아이디" />
+
+    <EditText
+        android:id="@+id/inputId"
+        style="@style/edittextStyle"
+        android:hint="사용할 아이디를 입력하세요"
+        />
+
+    <Button
+        android:id="@+id/joinBtn"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="중복확인" />
+
+    <TextView
+        style="@style/subtitleStyle"
+        android:text="비밀번호" />
+
+    <EditText
+        android:id="@+id/inputPw"
+        style="@style/edittextStyle"
+        android:hint="사용할 비밀번호를 입력하세요"
+        />
+
+    <Button
+        android:id="@+id/checkBtn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="가입하기" />
+
+
+</LinearLayout>
