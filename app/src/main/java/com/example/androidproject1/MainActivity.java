@@ -9,8 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidproject1.R;
-import com.example.androidproject1.loginActivity;
-import com.example.androidproject1.joinActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button todayQuestBtn, selfCheckBtn, myTodayBtn, cognitveBtn, loginBtn, joinBtn;
@@ -27,6 +25,38 @@ public class MainActivity extends AppCompatActivity {
         cognitveBtn = findViewById(R.id.cognitveBtn);
         loginBtn = findViewById(R.id.loginBtn);
         joinBtn = findViewById(R.id.joinBtn);
+
+        todayQuestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, todayActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        selfCheckBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, selfcheckActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        myTodayBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, mytodayActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        cognitveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, cognitiveActivity.class);
+                startActivity(intent);
+            }
+        });
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
