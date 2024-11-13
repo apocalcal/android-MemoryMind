@@ -6,19 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".loginActivity">
+    tools:context=".LoginActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="10dp">
-    <Button
-        android:id="@+id/backBtn"
-        android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:layout_marginRight="20dp"
-        android:textSize="14sp"
-        android:text="←" />
+<!--    <Button-->
+<!--        android:id="@+id/backBtn"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:textSize="14sp"-->
+<!--        android:text="◀" />-->
 
         <TextView
             style="@style/titleStyle"
