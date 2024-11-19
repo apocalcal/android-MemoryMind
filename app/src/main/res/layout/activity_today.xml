@@ -15,20 +15,46 @@
         android:text="오늘의 질문" />
 
     <TextView
-        style="@style/subtitleStyle"
-        android:textSize="24sp"
-        android:text="질문 1. 오늘은 몇 월인가요?" />
+        android:id="@+id/questionText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:text="문제 1번 질문이 여기에 나옵니다."
+        android:padding="16dp"/>
 
-    <EditText
-        android:id="@+id/editAnwser"
-        style="@style/edittextStyle"
-        android:hint="정답을 입력하세요" />
 
+    <RadioGroup
+        android:id="@+id/answerGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:textSize="24sp" >
+
+        <RadioButton
+            android:id="@+id/answer1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보기 1" />
+
+        <RadioButton
+            android:id="@+id/answer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보기 2" />
+
+        <RadioButton
+            android:id="@+id/answer3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보기 3" />
+    </RadioGroup>
+
+    <!-- 다음 버튼 -->
     <Button
-        android:id="@+id/checkAnswerBtn"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="정답 확인" />
+        android:id="@+id/nextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="다음"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"/>
 </LinearLayout>
