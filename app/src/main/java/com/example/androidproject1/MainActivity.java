@@ -13,7 +13,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     private TextView loginSuggest;
-    private Button todayQuestBtn, selfCheckBtn, myTodayBtn, cognitveBtn, loginBtn, joinBtn;
+    private Button todayQuestBtn, selfCheckBtn, myTodayBtn, cognitveBtn, loginBtn, joinBtn, customBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,10 @@ public class MainActivity extends AppCompatActivity {
         todayQuestBtn = findViewById(R.id.todayQuestBtn);
         selfCheckBtn = findViewById(R.id.selfCheckBtn);
 //        myTodayBtn = findViewById(R.id.myTodayBtn);
-//        cognitveBtn = findViewById(R.id.cognitveBtn);
+        cognitveBtn = findViewById(R.id.cognitveBtn);
         loginBtn = findViewById(R.id.loginBtn);
         joinBtn = findViewById(R.id.joinBtn);
+        customBtn = findViewById(R.id.customBtn);
         loginSuggest = findViewById(R.id.loginSuggest);
 
         if (isLoggedIn) {
@@ -38,32 +39,43 @@ public class MainActivity extends AppCompatActivity {
             joinBtn.setVisibility(View.GONE);
             todayQuestBtn.setVisibility(View.VISIBLE);
             selfCheckBtn.setVisibility(View.VISIBLE);
+            customBtn.setVisibility(View.VISIBLE);
         } else {
             loginBtn.setText("로그인");
             loginSuggest.setText("");
             todayQuestBtn.setVisibility(View.GONE);
             selfCheckBtn.setVisibility(View.GONE);
+            customBtn.setVisibility(View.GONE);
         }
         todayQuestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                     Intent intent = new Intent(MainActivity.this, TodayActivity.class);
                     startActivity(intent);
-
             }
         });
 
         selfCheckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isLoggedIn) {
-                    Toast.makeText(MainActivity.this, "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
-                }
-                else {
                     Intent intent = new Intent(MainActivity.this, SelfcheckActivity.class);
                     startActivity(intent);
-                }
+            }
+        });
+
+        customBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, CustomActivity.class);
+                    startActivity(intent);
+            }
+        });
+
+        cognitveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, CognitiveActivity.class);
+                    startActivity(intent);
             }
         });
 //
@@ -87,18 +99,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 //
-//        cognitveBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(!isLoggedIn) {
-//                    Toast.makeText(MainActivity.this, "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
-//                }
-//                else {
-//                    Intent intent = new Intent(MainActivity.this, CognitiveActivity.class);
-//                    startActivity(intent);
-//                }
-//            }
-//        });
+
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

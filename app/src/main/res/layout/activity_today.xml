@@ -1,60 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TodayActivity">
-
-    <TextView
-        style="@style/titleStyle"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="오늘의 질문" />
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/questionText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="28sp"
-        android:text="문제 1번 질문이 여기에 나옵니다."
-        android:padding="16dp"/>
+        android:text="질문이 여기에 표시됩니다."
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="16dp" />
 
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:datePickerMode="spinner"
+        android:layout_gravity="center"
+        android:calendarViewShown="false" />
 
     <RadioGroup
         android:id="@+id/answerGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:textSize="24sp" >
+        android:orientation="vertical"
+        android:visibility="visible" />
 
-        <RadioButton
-            android:id="@+id/answer1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="보기 1" />
-
-        <RadioButton
-            android:id="@+id/answer2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="보기 2" />
-
-        <RadioButton
-            android:id="@+id/answer3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="보기 3" />
-    </RadioGroup>
-
-    <!-- 다음 버튼 -->
     <Button
-        android:id="@+id/nextButton"
-        android:layout_width="match_parent"
+        android:id="@+id/nextBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="다음"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp" />
 </LinearLayout>

@@ -71,23 +71,28 @@ public class LoginActivity extends AppCompatActivity {
 
     private void loginUser(LoginRequest loginRequest) {
         ApiService apiService = ApiClient.getClient().create(ApiService.class);
-        Call<Void> call = apiService.loginUser(loginRequest);
+        Call<LoginResponse> call = apiService.loginUser(loginRequest);
 
-        call.enqueue(new Callback<Void>() {
+        call.enqueue(new Callback<LoginResponse>() {
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful()) {
-                    saveLoginState(true);
-                    Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    LoginResponse loginResponse = response.body();
+
+                    // 로그인 성공 시 user_id 저장
                     SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putBoolean("isLoggedIn", true);
-                    editor.putString("username", loginRequest.getUsername());  // 사용자 아이디 저장
+                    editor.putInt("user_id", loginResponse.getUserId()); // user_id 저장
+                    editor.putString("username", loginRequest.getUsername()); // username 저장
                     editor.apply();
+
+                    Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+
+                    // 메인 화면으로 이동
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
-                    // 로그인 성공 시 메인 화면으로 이동 등의 추가 작업 수행
                 } else {
                     try {
                         String errorMessage = response.errorBody().string(); // 서버에서 받은 오류 메시지
@@ -100,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
                 Log.d("Retrofit", "Failure: " + t.getMessage());
                 Toast.makeText(LoginActivity.this, "네트워크 오류", Toast.LENGTH_SHORT).show();
             }

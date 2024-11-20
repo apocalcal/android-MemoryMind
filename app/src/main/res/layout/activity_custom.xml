@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TodayActivity">
+
+    <TextView
+        style="@style/titleStyle"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="커스텀 질문 만들기" />
+
+    <TextView
+        android:id="@+id/questionText"
+        style="@style/subtitleStyle"
+        android:textSize="20sp"
+        android:text="가족에게 전달할 질문을 만들어주세요."
+        android:padding="16dp"/>
+
+    <EditText
+        android:id="@+id/questionEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"  />
+
+    <TextView
+        android:id="@+id/answerText"
+        style="@style/subtitleStyle"
+        android:textSize="20sp"
+        android:text="질문의 정답을 입력해주세요."
+        android:padding="16dp"/>
+
+    <EditText
+        android:id="@+id/answerEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"  />
+
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="저장하기"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/malangmalangr" />
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/malangmalangr"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        android:text="뒤로가기" />
+</LinearLayout>

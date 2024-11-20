@@ -20,21 +20,13 @@ public class ResultActivity extends AppCompatActivity {
         resultTextView.setText(resultMessage != null ? resultMessage : "결과를 확인할 수 없습니다.");
 
         // "뒤로 가기" 버튼 처리
-        Button backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(v -> {
-            navigateToMainActivity();
-        });
-
-        // 하드웨어 뒤로 가기 버튼 처리
-        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                navigateToMainActivity();
-            }
+        Button backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(v -> {
+            goToMainActivity();
         });
     }
 
-    private void navigateToMainActivity() {
+    private void goToMainActivity() {
         Intent intent = new Intent(ResultActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

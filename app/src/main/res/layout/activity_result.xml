@@ -8,15 +8,14 @@
 
     <TextView
         android:id="@+id/resultTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/titleStyle"
         android:text="결과를 확인하세요."
-        android:textSize="24sp"
-        android:layout_marginBottom="16dp" />
+        android:textSize="28sp" />
 
     <Button
-        android:id="@+id/backButton"
+        android:id="@+id/backBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/malangmalangr"
         android:text="뒤로 가기" />
 </LinearLayout>
