@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,6 +50,7 @@ public class TodayActivity extends AppCompatActivity {
 
     private int QuestionIndex = 0;
     private int score = 0;
+    private List<Integer> incorrectQuestions = new ArrayList<>(); // 틀린 문제 기록
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,8 @@ public class TodayActivity extends AppCompatActivity {
             // 정답 비교
             if (selectedAnswerIndex == correctAnswers.get(QuestionIndex)) {
                 score++; // 정답일 경우 점수 증가
+            } else {
+                incorrectQuestions.add(QuestionIndex); // 틀린 문제 기록
             }
 
             // 다음 질문으로 이동
@@ -83,12 +87,9 @@ public class TodayActivity extends AppCompatActivity {
                 QuestionIndex++;
                 updateQuestion(questionText, answerGroup);
             } else {
-                // 모든 질문 완료 - 최종 점수 출력
-                String resultMessage = "모든 문제가 완료되었습니다! 점수: " + score + "/" + questions.size();
-                questionText.setText(resultMessage); // 결과를 TextView에 표시
-                answerGroup.removeAllViews(); // 보기 삭제
+                // 모든 질문 완료 - 결과 화면 표시
+                showIncorrectAnswers();
                 nextButton.setEnabled(false); // 버튼 비활성화
-                Toast.makeText(TodayActivity.this, resultMessage, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -104,5 +105,29 @@ public class TodayActivity extends AppCompatActivity {
             radioButton.setText(option);
             answerGroup.addView(radioButton);
         }
+    }
+
+    private void showIncorrectAnswers() {
+        // 틀린 문제만 표시
+        StringBuilder resultMessage = new StringBuilder();
+        resultMessage.append("점수: ").append(score).append("/").append(questions.size()).append("\n\n");
+
+        if (incorrectQuestions.isEmpty()) {
+            resultMessage.append("모든 문제를 맞췄습니다! 축하합니다!");
+        } else {
+            resultMessage.append("틀린 문제:\n");
+            for (int index : incorrectQuestions) {
+                resultMessage.append("문제 ").append(index + 1).append(": ").append(questions.get(index)).append("\n");
+                resultMessage.append("  정답: ").append(options.get(index).get(correctAnswers.get(index))).append("\n\n");
+            }
+        }
+
+        // 결과를 TextView에 표시
+        TextView questionText = findViewById(R.id.questionText);
+        questionText.setText(resultMessage.toString());
+
+        // 보기 삭제
+        RadioGroup answerGroup = findViewById(R.id.answerGroup);
+        answerGroup.removeAllViews();
     }
 }
