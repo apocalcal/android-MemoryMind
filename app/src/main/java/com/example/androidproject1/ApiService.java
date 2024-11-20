@@ -14,5 +14,10 @@ public interface ApiService {
     Call<Void> registerUser(@Body User user); // POST 요청의 body에 User 객체를 포함
 
     @POST("login") // 서버의 로그인 엔드포인트
-    Call<Void> loginUser(@Body LoginRequest loginRequest);
+    Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);
+
+    @POST("create-question")
+    Call<Void> createQuestion(@Body QuestionRequest questionRequest);
+
+
 }

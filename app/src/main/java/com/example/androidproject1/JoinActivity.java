@@ -1,5 +1,6 @@
 package com.example.androidproject1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -56,8 +57,8 @@ public class JoinActivity extends AppCompatActivity {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                                 // 선택한 날짜를 EditText에 표시
-                                String dob = year + "-" + (month + 1) + "-" + dayOfMonth;
-                                inputBirth.setText(dob);
+                                String birth = year + "-" + (month + 1) + "-" + dayOfMonth;
+                                inputBirth.setText(birth);
                             }
                         },
                         year, month, day);
@@ -94,6 +95,8 @@ public class JoinActivity extends AppCompatActivity {
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
                     Toast.makeText(JoinActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(JoinActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(JoinActivity.this, "회원가입 실패", Toast.LENGTH_SHORT).show();
                 }
