@@ -40,12 +40,14 @@ public class MainActivity extends AppCompatActivity {
             todayQuestBtn.setVisibility(View.VISIBLE);
             selfCheckBtn.setVisibility(View.VISIBLE);
             customBtn.setVisibility(View.VISIBLE);
+            cognitveBtn.setVisibility(View.VISIBLE);
         } else {
             loginBtn.setText("로그인");
             loginSuggest.setText("");
             todayQuestBtn.setVisibility(View.GONE);
             selfCheckBtn.setVisibility(View.GONE);
             customBtn.setVisibility(View.GONE);
+            cognitveBtn.setVisibility(View.GONE);
         }
         todayQuestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
