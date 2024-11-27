@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         customBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, CustomActivity.class);
+                    Intent intent = new Intent(MainActivity.this, ChoiceActivity.class);
                     startActivity(intent);
             }
         });
