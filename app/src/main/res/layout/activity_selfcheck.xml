@@ -1,12 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".SelfcheckActivity">
+    android:orientation="vertical">
 
     <TextView
         style="@style/titleStyle"
@@ -18,55 +13,51 @@
         android:id="@+id/subtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/hakgyoansimr"
+        android:layout_margin="16dp"
         android:text="질문이 표시됩니다." />
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp">
-
-        <RadioButton
-            android:id="@+id/option1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="옵션 1"
-            android:textSize="16sp" />
-
-        <RadioButton
-            android:id="@+id/option2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="옵션 2"
-            android:textSize="16sp" />
-
-        <RadioButton
-            android:id="@+id/option3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="옵션 3"
-            android:textSize="16sp"
-            android:visibility="gone" />
-    </RadioGroup>
+    <!-- 선택 버튼 -->
+    <Button
+        android:id="@+id/option1"
+        style="@style/optionStyle"
+        android:text="옵션 1" />
 
     <Button
-        android:id="@+id/joinBtn"
+        android:id="@+id/option2"
+        style="@style/optionStyle"
+        android:text="옵션 2" />
+
+    <Button
+        android:id="@+id/option3"
+        style="@style/optionStyle"
+        android:text="옵션 3"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/nextBtn"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
+        android:fontFamily="@font/hakgyoansimb"
+        android:background="@color/deepblue"
+        android:textColor="@color/white"
         android:layout_marginTop="10dp"
+        android:textSize="18sp"
         android:text="다음" />
 
     <Button
-        android:id="@+id/resultButton"
+        android:id="@+id/resultBtn"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
+        android:fontFamily="@font/hakgyoansimb"
+        android:background="@color/deepblue"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
         android:text="결과 확인하기"
         android:visibility="gone" />
 </LinearLayout>

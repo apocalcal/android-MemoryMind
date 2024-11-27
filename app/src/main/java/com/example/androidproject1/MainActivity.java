@@ -13,7 +13,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     private TextView loginSuggest;
-    private Button todayQuestBtn, selfCheckBtn, myTodayBtn, cognitveBtn, loginBtn, joinBtn, customBtn;
+    private Button todayQuestBtn, selfCheckBtn, cognitveBtn, loginBtn, joinBtn, customBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         // 레이아웃 요소 참조
         todayQuestBtn = findViewById(R.id.todayQuestBtn);
         selfCheckBtn = findViewById(R.id.selfCheckBtn);
-//        myTodayBtn = findViewById(R.id.myTodayBtn);
         cognitveBtn = findViewById(R.id.cognitveBtn);
         loginBtn = findViewById(R.id.loginBtn);
         joinBtn = findViewById(R.id.joinBtn);
@@ -80,28 +79,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
             }
         });
-//
-//        myTodayBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(!isLoggedIn) {
-//                    Snackbar.make(findViewById(android.R.id.content), "로그인이 필요합니다.", Snackbar.LENGTH_LONG)
-//                            .setAction("로그인하기", new View.OnClickListener() {
-//                                @Override
-//                                public void onClick(View v) {
-//                                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//                                    startActivity(intent);
-//                                }
-//                            }).show();
-//                }
-//                else {
-//                    Intent intent = new Intent(MainActivity.this, MyActivity.class);
-//                    startActivity(intent);
-//                }
-//            }
-//        });
-//
-
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

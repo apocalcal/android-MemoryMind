@@ -11,30 +11,33 @@
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
         />
-    <TextView
-        android:id="@+id/questionText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="질문이 여기에 표시됩니다."
-        android:textSize="24sp"
-        android:fontFamily="@font/hakgyoansimr"
-        android:textColor="#000000"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="16dp" />
 
-    <DatePicker
-        android:id="@+id/datePicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:datePickerMode="spinner"
-        android:layout_gravity="center"
-        android:calendarViewShown="false" />
+        <TextView
+            android:id="@+id/questionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/hakgyoansimr"
+            android:paddingBottom="16dp"
+            android:textSize="24sp"
+            android:text="질문이 여기에 표시됩니다."
+            android:textColor="@color/black" />
 
-    <LinearLayout
+    <GridLayout
         android:id="@+id/buttonContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/subjectiveAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="답변을 입력하세요"
         android:visibility="gone" />
 
     <Button
@@ -42,6 +45,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:background="@color/deepblue"
+        android:textColor="@color/white"
         android:fontFamily="@font/hakgyoansimb"
+        android:textSize="18sp"
+        android:layout_margin="20dp"
         android:text="다음" />
 </LinearLayout>

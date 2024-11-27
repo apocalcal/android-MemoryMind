@@ -1,8 +1,12 @@
 package com.example.androidproject1;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface ApiService {
 
@@ -19,5 +23,7 @@ public interface ApiService {
     @POST("create-question")
     Call<Void> createQuestion(@Body QuestionRequest questionRequest);
 
+    @GET("get-all-questions")
+    Call<List<Question>> getAllQuestions(@Query("user_id") int userId);
 
 }

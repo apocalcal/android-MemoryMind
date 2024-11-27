@@ -4,14 +4,22 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">#FFFFFF</item>
-        <item name="android:background">#3F5A64</item>
+        <item name="android:background">#0C3155</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_margin">16dp</item>
         <item name="android:textSize">30sp</item>
         <item name="android:fontFamily">@font/hakgyoansimb</item>
-
         <item name="android:gravity">center</item>
+    </style>
 
+    <style name="optionStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:fontFamily">@font/hakgyoansimb</item>
+        <item name="android:background">#0C3155</item>
+        <item name="android:layout_margin">16dp</item>
     </style>
 
     <style name="titleStyle">

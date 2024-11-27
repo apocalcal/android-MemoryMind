@@ -1,73 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_colormatch"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:padding="16dp">
 
-    <!-- 현재 색상 텍스트 -->
+    <!-- 게임 방법 텍스트 (화면 상단 고정) -->
     <TextView
-        android:id="@+id/colorText"
+        android:id="@+id/gameInstructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Red"
-        android:textSize="24sp"
-        android:layout_marginBottom="16dp"
-        android:gravity="center" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:text="글자 색깔 맞추기 \n화면에 나오는 글자의 색깔을 보고 밑에 선택지 중 정답인 것을 터치한다."
+        android:textColor="@android:color/black"
+        android:fontFamily="@font/hakgyoansimr"
+        android:textSize="23sp"
+        android:gravity="center"
+        android:textStyle="italic" />
 
-    <!-- 레벨 표시 텍스트 -->
-    <TextView
-        android:id="@+id/levelText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Level: 1"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- 점수 표시 텍스트 -->
-    <TextView
-        android:id="@+id/scoreText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Score: 0"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- 버튼 영역 -->
+    <!-- 나머지 구성 요소 (가운데 정렬) -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/gameContent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_below="@id/gameInstructions"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="146dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/buttonRed"
+        <TextView
+            android:id="@+id/colorText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Red"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/hakgyoansimb"
+            android:text="Color"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/buttonBlue"
+        <TextView
+            android:id="@+id/resultText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Blue"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/hakgyoansimr"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/buttonGreen"
+        <TextView
+            android:id="@+id/scoreText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Green" />
+            android:layout_marginBottom="16dp"
+            android:text="현재 점수: 0"
+            android:fontFamily="@font/hakgyoansimr"
+            android:textColor="@android:color/black"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:id="@+id/buttonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:orientation="horizontal"></LinearLayout>
+
+        <Button
+            android:id="@+id/mainMenuButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="돌아가기"
+            android:fontFamily="@font/hakgyoansimb"
+            android:textSize="20sp"
+            android:background="@color/deepblue"
+            android:textColor="@android:color/white"
+            android:visibility="gone" />
     </LinearLayout>
-
-    <!-- 메인 메뉴로 이동 버튼 -->
-    <Button
-        android:id="@+id/mainMenuButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Main Menu"
-        android:visibility="gone"
-        android:layout_marginTop="20dp" />
-</LinearLayout>
+</RelativeLayout>

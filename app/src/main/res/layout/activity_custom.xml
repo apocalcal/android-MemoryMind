@@ -6,55 +6,112 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TodayActivity">
+    tools:context=".CustomActivity">
 
     <TextView
         style="@style/titleStyle"
         android:layout_width="match_parent"
         android:gravity="center"
         android:text="커스텀 질문 만들기" />
+    <!-- 질문 유형 선택 -->
+    <RadioGroup
+        android:id="@+id/questionTypeGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <RadioButton
+            android:id="@+id/radioSubjective"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="주관식"
+            android:layout_margin="10dp"
+            android:textSize="24sp"
+            android:fontFamily="@font/hakgyoansimr"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioObjective"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="24sp"
+            android:fontFamily="@font/hakgyoansimr"
+            android:text="객관식" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/questionText"
         style="@style/subtitleStyle"
         android:textSize="20sp"
         android:text="가족에게 전달할 질문을 만들어주세요."
-        android:padding="16dp"/>
+        android:padding="16dp" />
 
     <EditText
         android:id="@+id/questionEdit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"  />
+        style="@style/edittextStyle" />
 
     <TextView
         android:id="@+id/answerText"
         style="@style/subtitleStyle"
         android:textSize="20sp"
         android:text="질문의 정답을 입력해주세요."
-        android:padding="16dp"/>
+        android:padding="16dp" />
 
     <EditText
         android:id="@+id/answerEdit"
+        style="@style/edittextStyle" />
+
+    <!-- 객관식 옵션 입력 -->
+    <LinearLayout
+        android:id="@+id/objectiveOptionsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"  />
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/option1"
+            style="@style/edittextStyle"
+            android:hint="옵션 1" />
+
+        <EditText
+            android:id="@+id/option2"
+            style="@style/edittextStyle"
+            android:hint="옵션 2" />
+
+        <EditText
+            android:id="@+id/option3"
+            style="@style/edittextStyle"
+            android:hint="옵션 3"
+           />
+
+        <EditText
+            android:id="@+id/option4"
+            style="@style/edittextStyle"
+            android:hint="옵션 4" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/saveBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="저장하기"
+        android:background="@color/deepblue"
         android:layout_margin="10dp"
-        android:textSize="16sp"
-        android:fontFamily="@font/malangmalangr" />
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:fontFamily="@font/hakgyoansimb" />
 
     <Button
         android:id="@+id/backBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/malangmalangr"
+        android:background="@color/deepblue"
+        android:textColor="@color/white"
+        android:fontFamily="@font/hakgyoansimb"
         android:layout_margin="10dp"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:text="뒤로가기" />
 </LinearLayout>

@@ -2,12 +2,11 @@ package com.example.androidproject1;
 
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.content.Intent;
+import android.graphics.Color;
 
 public class SelfcheckActivity extends AppCompatActivity {
 
@@ -39,12 +38,11 @@ public class SelfcheckActivity extends AppCompatActivity {
             {"예전처럼 정신이 맑습니까?", "예", "아니오"}
     };
 
-
     private int currentQuestionIndex = 0;
     private int totalScore = 0; // 점수 누적 변수
     private TextView subtitleTextView;
-    private RadioGroup answersGroup;
-    private RadioButton option1, option2, option3;
+    private Button selectedButton = null; // 현재 선택된 버튼
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,76 +51,87 @@ public class SelfcheckActivity extends AppCompatActivity {
 
         // XML ID 연결
         subtitleTextView = findViewById(R.id.subtitle);
-        answersGroup = findViewById(R.id.radioGroup);
-        option1 = findViewById(R.id.option1);
-        option2 = findViewById(R.id.option2);
-        option3 = findViewById(R.id.option3);
-        Button nextButton = findViewById(R.id.joinBtn);
-        Button resultButton = findViewById(R.id.resultButton); // 결과 확인하기 버튼 연결
+        Button option1 = findViewById(R.id.option1);
+        Button option2 = findViewById(R.id.option2);
+        Button option3 = findViewById(R.id.option3);
+        Button nextBtn = findViewById(R.id.nextBtn);
+        Button resultBtn = findViewById(R.id.resultBtn);
+
+        // 초기화 - 다음 버튼 비활성화
+        nextBtn.setEnabled(false);
 
         // 첫 질문 설정
-        updateQuestion();
+        updateQuestion(option1, option2, option3);
 
-        // "다음" 버튼 클릭 시
-        nextButton.setOnClickListener(v -> {
-            // 선택한 답변 확인
-            int selectedId = answersGroup.getCheckedRadioButtonId();
-            if (selectedId != -1) { // 선택된 답변이 있는 경우
-                RadioButton selectedButton = findViewById(selectedId);
+        // 옵션 버튼 클릭 이벤트 처리
+        View.OnClickListener answerClickListener = v -> {
+            // 선택된 버튼 처리
+            if (selectedButton != null) {
+                selectedButton.setBackgroundColor(Color.GRAY); // 이전 선택 버튼 색상 복구
+            }
+            selectedButton = (Button) v;
+            selectedButton.setBackgroundColor(Color.parseColor("#0C3155")); // 선택된 버튼 색상 변경
 
-                // 점수 계산
+            // "다음" 버튼 활성화
+            nextBtn.setEnabled(true);
+        };
+
+        option1.setOnClickListener(answerClickListener);
+        option2.setOnClickListener(answerClickListener);
+        option3.setOnClickListener(answerClickListener);
+
+        // "다음" 버튼 클릭 이벤트 처리
+        nextBtn.setOnClickListener(v -> {
+            if (selectedButton != null) {
+                // 선택된 답변 처리
                 String selectedAnswer = selectedButton.getText().toString();
                 totalScore += calculateScore(selectedAnswer);
-            }
 
-            if (currentQuestionIndex < questionAnswers.length - 1) {
-                currentQuestionIndex++;
-                updateQuestion();
-            } else {
-                // 모든 질문이 끝난 경우 처리
-                subtitleTextView.setText("자가진단이 완료되었습니다.");
-                option1.setVisibility(View.GONE);
-                option2.setVisibility(View.GONE);
-                option3.setVisibility(View.GONE);
-                nextButton.setVisibility(View.GONE); // "다음" 버튼 숨기기
-                resultButton.setVisibility(View.VISIBLE); // "결과 확인하기" 버튼 보이기
+                // 다음 질문으로 이동
+                if (currentQuestionIndex < questionAnswers.length - 1) {
+                    currentQuestionIndex++;
+                    updateQuestion(option1, option2, option3);
+                    nextBtn.setEnabled(false); // 다음 버튼 다시 비활성화
+                    selectedButton = null; // 선택 초기화
+                } else {
+                    // 모든 질문이 끝난 경우 처리
+                    subtitleTextView.setText("자가진단이 완료되었습니다.");
+                    option1.setVisibility(View.GONE);
+                    option2.setVisibility(View.GONE);
+                    option3.setVisibility(View.GONE);
+                    nextBtn.setVisibility(View.GONE);
+                    resultBtn.setVisibility(View.VISIBLE);
+                }
             }
         });
 
-        // "결과 확인하기" 버튼 클릭 시
-        resultButton.setOnClickListener(v -> {
-            // 결과 메시지 생성
+        // "결과 확인하기" 버튼 클릭
+        resultBtn.setOnClickListener(v -> {
             String resultMessage = getResultMessage(totalScore);
-
-            // Intent로 ResultActivity 호출
             Intent intent = new Intent(SelfcheckActivity.this, ResultActivity.class);
-            intent.putExtra("RESULT_MESSAGE", resultMessage); // 결과 메시지 전달
+            intent.putExtra("RESULT_MESSAGE", resultMessage);
             startActivity(intent);
         });
     }
 
-    private void updateQuestion() {
-        // 현재 질문 설정
+    private void updateQuestion(Button option1Button, Button option2Button, Button option3Button) {
         subtitleTextView.setText((currentQuestionIndex + 1) + ". " + questionAnswers[currentQuestionIndex][0]);
 
-        // 첫 번째 옵션
-        option1.setText(questionAnswers[currentQuestionIndex][1]);
-        option1.setVisibility(View.VISIBLE);
+        option1Button.setText(questionAnswers[currentQuestionIndex][1]);
+        option1Button.setBackgroundColor(Color.GRAY); // 초기화
+        option1Button.setVisibility(View.VISIBLE);
 
-        // 두 번째 옵션
-        option2.setText(questionAnswers[currentQuestionIndex][2]);
-        option2.setVisibility(View.VISIBLE);
+        option2Button.setText(questionAnswers[currentQuestionIndex][2]);
+        option2Button.setBackgroundColor(Color.GRAY); // 초기화
+        option2Button.setVisibility(View.VISIBLE);
 
-        // 세 번째 옵션 (존재 여부에 따라 가시성 조정)
         if (questionAnswers[currentQuestionIndex].length > 3) {
-            option3.setText(questionAnswers[currentQuestionIndex][3]);
-            option3.setVisibility(View.VISIBLE);
+            option3Button.setText(questionAnswers[currentQuestionIndex][3]);
+            option3Button.setBackgroundColor(Color.GRAY); // 초기화
+            option3Button.setVisibility(View.VISIBLE);
         } else {
-            option3.setVisibility(View.GONE);
+            option3Button.setVisibility(View.GONE);
         }
-
-        // RadioGroup 초기화
-        answersGroup.clearCheck();
     }
 
     // 점수 계산 메서드

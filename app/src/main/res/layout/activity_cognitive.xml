@@ -34,7 +34,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="게임 실행"
+        android:textSize="20sp"
+        android:fontFamily="@font/hakgyoansimb"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/design_default_color_primary"
+        android:backgroundTint="@color/deepblue"
         android:textColor="#FFFFFF" />
 </LinearLayout>

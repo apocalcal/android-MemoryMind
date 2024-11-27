@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="50dp"
         android:orientation="vertical"
         android:padding="10dp">
     </LinearLayout>
@@ -40,49 +40,42 @@
         <Button
             android:id="@+id/customBtn"
             style="@style/buttonStyle"
-            android:text="커스텀 질문" />
+            android:text="질문 만들기" />
 
         <Button
             android:id="@+id/cognitveBtn"
             style="@style/buttonStyle"
             android:text="인지훈련게임" />
-
     </LinearLayout>
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:padding="10dp">-->
 
-<!--        <Button-->
-<!--            android:id="@+id/myTodayBtn"-->
-<!--            style="@style/buttonStyle"-->
-<!--            android:text="나의 하루" />-->
-
-
-
-<!--    </LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="10dp">
 
         <Button
             android:id="@+id/loginBtn"
             style="@style/buttonStyle"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_gravity="center"
             android:text="로그인" />
 
         <Button
             android:id="@+id/joinBtn"
             style="@style/buttonStyle"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_gravity="center"
             android:text="회원가입" />
+    </LinearLayout>
 
         <TextView
             android:id="@+id/loginSuggest"
@@ -92,6 +85,4 @@
             android:textColor="#575757"
             android:fontFamily="@font/hakgyoansimr"
             android:textSize="20sp" />
-
-    </LinearLayout>
 </LinearLayout>
