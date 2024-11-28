@@ -59,7 +59,7 @@ public class TodayActivity extends AppCompatActivity {
     private void addDefaultQuestions() {
         // 기본 질문: 오늘 날짜 질문 추가
         allQuestions.add(new Question(
-                "오늘의 날짜는 몇 월 며칠인가요?",
+                "오늘의 날짜는 몇 월 몇 일인가요? (예시 : 2024년 10월 12일)",
                 "", // 정답은 동적으로 확인하므로 비워둠
                 null // 주관식이므로 options는 null
         ));

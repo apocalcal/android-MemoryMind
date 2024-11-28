@@ -9,6 +9,7 @@
         style="@style/titleStyle"
         android:text="오늘의 질문"
         android:layout_gravity="center"
+        android:textColor="@color/black"
         android:layout_marginBottom="20dp"
         />
 
@@ -37,7 +38,7 @@
         android:id="@+id/subjectiveAnswer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="답변을 입력하세요"
+        android:hint="OOOO년 OO월 OO일"
         android:visibility="gone" />
 
     <Button

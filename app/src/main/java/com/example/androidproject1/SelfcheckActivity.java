@@ -26,7 +26,7 @@ public class SelfcheckActivity extends AppCompatActivity {
             {"상황에 맞게 스스로 옷을 선택하여 입지 못한다.", "아니다", "가끔 그렇다", "자주 그렇다"},
             {"혼자 대중교통 수단을 이용하여 목적지에 가기 힘들다.(신체적인 문제로 인한 것은 제외)", "아니다", "가끔 그렇다", "자주 그렇다"},
             {"내복이나 옷이 더러워져도 갈아입지 않으려고 한다.", "아니다", "가끔 그렇다", "자주 그렇다"},
-            {"대체로 활기차게 사시는 편입니까?", "예", "아니오"},
+            {"대체로 우울하게 느끼십니까?", "예", "아니오"},
             {"좋지 않은 일이 생길 것 같아 걱정스럽습니까?", "예", "아니오"},
             {"불안해지거나 안절부절 못할 때가 많습니까?", "예", "아니오"},
             {"기분이 가라앉거나 울적할 때가 자주 있습니까?", "예", "아니오"},
@@ -137,9 +137,9 @@ public class SelfcheckActivity extends AppCompatActivity {
     // 점수 계산 메서드
     private int calculateScore(String answer) {
         switch (answer) {
-            case "아니다": return 0;
-            case "가끔 그렇다": return 1;
-            case "자주 그렇다": return 2;
+            case "아니다": return 1;
+            case "가끔 그렇다": return 3;
+            case "자주 그렇다": return 5;
             case "예": return 1;
             case "아니오": return 0;
             default: return 0;
@@ -149,11 +149,11 @@ public class SelfcheckActivity extends AppCompatActivity {
     // 결과 메시지 생성 메서드
     private String getResultMessage(int score) {
         if (score <= 6) {
-            return "당신은 치매가 아닙니다.";
+            return "당신은 치매가 아닙니다."; // 웃는표정
         } else if (score <= 18) {
-            return "당신은 치매가 의심스럽습니다.";
+            return "당신은 치매가 의심스럽습니다."; // 의심하는 표정
         } else {
-            return "당신은 치매 가능성이 높습니다.";
+            return "당신은 치매 가능성이 높습니다."; // 우는표정
         }
     }
 }
