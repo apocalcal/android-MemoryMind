@@ -9,9 +9,7 @@ import android.content.SharedPreferences;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.IOException;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,7 +27,6 @@ public class LoginActivity extends AppCompatActivity {
         editId = findViewById(R.id.editId);
         editPw = findViewById(R.id.editPw);
         loginBtn = findViewById(R.id.loginBtn);
-//        backBtn = findViewById(R.id.backBtn);
         joinBtn = findViewById(R.id.joinBtn);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
