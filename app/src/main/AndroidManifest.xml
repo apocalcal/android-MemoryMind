@@ -16,19 +16,17 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".LoadActivity"
+            android:exported="true">
+           <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
             android:name=".ChoiceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".choiceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".ViewQuestionsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ViewQuestionsActivity.java"
             android:exported="false" />
         <activity
             android:name=".ColormatchActivity"
@@ -38,9 +36,6 @@
             android:exported="false" />
         <activity
             android:name=".ResultActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MyActivity"
             android:exported="false" />
         <activity
             android:name=".SelfcheckActivity"

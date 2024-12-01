@@ -34,11 +34,25 @@
         android:hint="비밀번호를 입력하세요"
         android:inputType="textPassword" />
 
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@color/deepblue"
+        android:textColor="@color/white"
+        android:fontFamily="@font/hakgyoansimb"
+        android:textSize="18sp"
+        android:layout_margin="10dp"
+        android:text="로그인" />
+
     <TextView
         style="@style/subtitleStyle"
         android:text="회원이 아니신가요?"
         android:layout_gravity="center"
-        android:textSize="14sp"/>
+        android:layout_margin="10dp"
+        android:textSize="18sp"/>
 
     <Button
         android:id="@+id/joinBtn"
@@ -51,16 +65,4 @@
         android:fontFamily="@font/hakgyoansimb"
         android:textSize="18sp"
         android:text="회원가입" />
-
-    <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@color/deepblue"
-        android:textColor="@color/white"
-        android:fontFamily="@font/hakgyoansimb"
-        android:textSize="18sp"
-        android:text="로그인" />
 </LinearLayout>

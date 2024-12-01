@@ -50,7 +50,8 @@
 
     <EditText
         android:id="@+id/questionEdit"
-        style="@style/edittextStyle" />
+        style="@style/edittextStyle"
+        android:hint="질문을 입력하세요." />
 
     <TextView
         android:id="@+id/answerText"
@@ -61,7 +62,8 @@
 
     <EditText
         android:id="@+id/answerEdit"
-        style="@style/edittextStyle" />
+        style="@style/edittextStyle"
+        android:hint="정답을 입력하세요." />
 
     <!-- 객관식 옵션 입력 -->
     <LinearLayout
