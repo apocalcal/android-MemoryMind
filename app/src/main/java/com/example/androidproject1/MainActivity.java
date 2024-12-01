@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     private TextView loginSuggest;
+    private ImageView icon;
     private Button todayQuestBtn, selfCheckBtn, cognitveBtn, loginBtn, joinBtn, customBtn;
 
     @Override
@@ -31,11 +33,13 @@ public class MainActivity extends AppCompatActivity {
         joinBtn = findViewById(R.id.joinBtn);
         customBtn = findViewById(R.id.customBtn);
         loginSuggest = findViewById(R.id.loginSuggest);
+        icon = findViewById(R.id.icon);
 
         if (isLoggedIn) {
             loginBtn.setText("로그아웃");
             loginSuggest.setText("환영합니다, " + username + "님!");
             joinBtn.setVisibility(View.GONE);
+            icon.setVisibility(View.GONE);
             todayQuestBtn.setVisibility(View.VISIBLE);
             selfCheckBtn.setVisibility(View.VISIBLE);
             customBtn.setVisibility(View.VISIBLE);
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             loginBtn.setText("로그인");
             loginSuggest.setText("");
+            icon.setVisibility(View.VISIBLE);
             todayQuestBtn.setVisibility(View.GONE);
             selfCheckBtn.setVisibility(View.GONE);
             customBtn.setVisibility(View.GONE);
