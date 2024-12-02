@@ -57,7 +57,7 @@
         <Button
             android:id="@+id/todayQuestBtn"
             style="@style/buttonStyle"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:text="오늘의 질문" />
 
         <TextView
