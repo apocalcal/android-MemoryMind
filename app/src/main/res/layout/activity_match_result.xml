@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="10dp">
+
+    <!-- 타이틀 -->
+    <TextView
+        style="@style/titleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:text="결과 보기" />
+
+    <!-- 결과 텍스트 -->
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:fontFamily="@font/hakgyoansimr"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="결과가 표시됩니다." />
+
+    <!-- 뒤로가기 버튼 -->
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/hakgyoansimb"
+        android:background="@color/deepblue"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        android:text="뒤로가기" />
+</LinearLayout>

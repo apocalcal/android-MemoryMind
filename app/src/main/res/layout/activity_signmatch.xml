@@ -1,0 +1,69 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignMatchActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="10dp">
+
+    <!-- 타이틀 -->
+    <TextView
+        style="@style/titleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:text="표지판 맞추기" />
+
+    <!-- 설명 텍스트 -->
+    <TextView
+        android:id="@+id/instructionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="표지판 정답을 기억하고\n문제를 풀어보세요!"
+        android:textSize="30sp"
+        android:fontFamily="@font/hakgyoansimr"
+        android:layout_marginBottom="20dp"
+        android:gravity="center" />
+
+    <!-- 문제 영역 -->
+    <LinearLayout
+        android:id="@+id/verticalLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="10dp" />
+
+    <!-- 제출 버튼 -->
+    <Button
+        android:id="@+id/submitButton"
+        style="@style/optionStyle"
+        android:layout_height="50dp"
+        android:text="제출하기"
+        android:background="@drawable/selectedbutton"
+        android:visibility="gone" />
+
+    <!-- 다음/결과 버튼 -->
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/hakgyoansimb"
+        android:background="@color/deepblue"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        android:text="다음"
+        android:visibility="gone" />
+</LinearLayout>
+</ScrollView>

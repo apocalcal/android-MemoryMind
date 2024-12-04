@@ -1,6 +1,9 @@
 package com.example.androidproject1;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,6 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +41,12 @@ public class CustomActivity extends AppCompatActivity {
         option2 = findViewById(R.id.option2);
         option3 = findViewById(R.id.option3);
         option4 = findViewById(R.id.option4);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
 
         // 라디오 버튼 선택 이벤트 처리
         questionTypeGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -73,13 +83,6 @@ public class CustomActivity extends AppCompatActivity {
                 }
             }
         });
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
     private void saveQuestion(String question, String answer, String[] options) {
@@ -114,5 +117,31 @@ public class CustomActivity extends AppCompatActivity {
                 Toast.makeText(CustomActivity.this, "네트워크 오류: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // 메뉴를 Toolbar에 추가
+        getMenuInflater().inflate(R.menu.menu_custom, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_home) {
+            Intent intent = new Intent(CustomActivity.this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_calendar) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_APP_CALENDAR);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            } else {
+                Toast.makeText(CustomActivity.this, "캘린더 앱을 찾을 수 없습니다.", Toast.LENGTH_SHORT).show();
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

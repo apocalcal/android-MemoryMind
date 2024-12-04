@@ -1,12 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:padding="16dp">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:textAlignment="center">
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메모리마인드"
+            android:fontFamily="@font/hakgyoansimb"
+            android:textSize="26sp"
+            android:textColor="@color/black" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp" />
     <!-- 타이틀 -->
     <TextView
         style="@style/titleStyle"
@@ -23,20 +39,32 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="20sp"
-        android:text="숨겨진 단어 찾기"
+        android:text="글자 색깔 맞추기 / 표지판 맞추기"
         android:layout_marginBottom="20dp" />
 
-
-    <!-- 게임 실행 버튼 추가 -->
+    <!-- 글자 색깔 맞추기 버튼 -->
     <Button
         android:id="@+id/startGameButton"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="게임 실행"
+        android:text="글자 색깔 맞추기 실행"
         android:textSize="20sp"
-        android:fontFamily="@font/hakgyoansimb"
+        android:fontFamily="@font/hakgyoansimr"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/deepblue"
+        android:background="@drawable/selectedbutton"
+        android:textColor="#FFFFFF" />
+
+    <!-- 표지판 맞추기 버튼 -->
+    <Button
+        android:id="@+id/startSignGameButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="표지판 맞추기 실행"
+        android:textSize="20sp"
+        android:fontFamily="@font/hakgyoansimr"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/selectedbutton"
         android:textColor="#FFFFFF" />
 </LinearLayout>

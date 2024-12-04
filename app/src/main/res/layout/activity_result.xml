@@ -10,14 +10,15 @@
         android:id="@+id/resultTextView"
         style="@style/titleStyle"
         android:text="결과를 확인하세요."
-        android:textSize="28sp" />
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/backBtn"
-        android:background="@color/deepblue"
+        android:background="@drawable/roundbutton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:textSize="20sp"
         android:fontFamily="@font/hakgyoansimb"
         android:textColor="@color/white"
         android:text="뒤로 가기" />

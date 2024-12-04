@@ -49,10 +49,10 @@
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:background="@color/deepblue"
+        android:background="@drawable/selectedbutton"
         android:textColor="@color/white"
-        android:fontFamily="@font/hakgyoansimb"
-        android:textSize="18sp"
+        android:fontFamily="@font/hakgyoansimr"
+        android:textSize="20sp"
         android:text="중복확인" />
 
     <TextView
@@ -70,10 +70,10 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:background="@color/deepblue"
+        android:background="@drawable/selectedbutton"
         android:textColor="@color/white"
-        android:fontFamily="@font/hakgyoansimb"
-        android:textSize="18sp"
+        android:fontFamily="@font/hakgyoansimr"
+        android:textSize="20sp"
         android:text="가입하기" />
 
 

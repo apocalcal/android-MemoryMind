@@ -6,39 +6,53 @@
     android:background="@drawable/background_grad"
     android:padding="16dp">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="vertical"
-        android:padding="10dp">
-    </LinearLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:textAlignment="center">
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:fontFamily="@font/hakgyoansimb"
+            android:textSize="24sp"
+            android:textColor="@color/black" />
+    </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:id="@+id/appName"
-        style="@style/titleStyle"
-        android:textColor="@color/white"
+<!--    <TextView-->
+<!--        android:id="@+id/appName"-->
+<!--        style="@style/titleStyle"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:gravity="center"-->
+<!--        android:text="@string/app_name" />-->
+
+    <ImageView
+        android:id="@+id/logo"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="@string/app_name" />
+        android:layout_height="150dp"
+        android:src="@drawable/memorylogo2"
+        />
 
     <TextView
         android:id="@+id/loginSuggest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:fontFamily="@font/hakgyoansimr"
         android:textSize="20sp" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/icon"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="300dp"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:src="@drawable/memoryicon3" />-->
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/memoryicon3" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,25 +61,28 @@
         android:padding="10dp">
 
         <TextView
+            android:id="@+id/todayText"
             style="@style/subtitleStyle"
             android:text="@string/today"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="20dp"
             android:textColor="@color/white"
             android:textSize="22sp"
+            android:visibility="gone"
             />
 
         <Button
             android:id="@+id/todayQuestBtn"
             style="@style/buttonStyle"
-            android:layout_height="80dp"
             android:text="오늘의 질문" />
 
         <TextView
             style="@style/subtitleStyle"
+            android:id="@+id/customText"
             android:text="@string/custom"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="20dp"
             android:textColor="@color/white"
             android:textSize="22sp"
+            android:visibility="gone"
             />
 
         <Button
@@ -75,10 +92,12 @@
 
         <TextView
             style="@style/subtitleStyle"
+            android:id="@+id/selfText"
             android:text="@string/self"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="20dp"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:visibility="gone"
             />
         <Button
             android:id="@+id/selfCheckBtn"
@@ -87,41 +106,34 @@
 
         <TextView
             style="@style/subtitleStyle"
+            android:id="@+id/cognitiveText"
             android:text="@string/cognitive"
+            android:layout_marginLeft="20dp"
             android:textColor="@color/white"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:visibility="gone" />
         <Button
             android:id="@+id/cognitveBtn"
             style="@style/buttonStyle"
             android:text="인지훈련게임" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp">
-
         <Button
             android:id="@+id/loginBtn"
             style="@style/buttonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:text="로그인" />
 
-<!--        <Button-->
-<!--            android:id="@+id/joinBtn"-->
-<!--            style="@style/buttonStyle"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:text="회원가입" />-->
+        <Button
+            android:id="@+id/joinBtn"
+            style="@style/buttonStyle"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:text="회원가입" />
     </LinearLayout>
 </LinearLayout>

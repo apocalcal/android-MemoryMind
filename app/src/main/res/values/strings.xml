@@ -2,9 +2,9 @@
     <string name="app_name">메모리마인드</string>
     <string name="login">로그인</string>
     <string name="join">회원가입</string>
-    <string name="today">중요한 기억을 매일 되새겨 봅시다!</string>
+    <string name="today">중요한 기억을 되새겨볼까요?</string>
     <string name="custom">새로운 질문을 받아보려면?</string>
-    <string name="self">치매가 의심된다면? 치매 자가진단 해보기</string>
+    <string name="self">치매가 의심된다면? 자가진단하기</string>
     <string name="cognitive">두뇌 트레이닝하기</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

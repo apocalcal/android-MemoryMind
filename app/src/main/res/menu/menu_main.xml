@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_home"
+        android:title="메인으로"
+        android:icon="@drawable/home"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_custom"
+        android:title="질문 만들기"
+        android:icon="@drawable/burger"
+        app:showAsAction="never" />
+</menu>

@@ -37,17 +37,12 @@ public class ColormatchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_colormatch);
 
         // View 초기화
+        TextView gameInstructions = findViewById(R.id.gameInstructions); // 게임 방법 텍스트
         colorText = findViewById(R.id.colorText);
         resultText = findViewById(R.id.resultText);
         scoreText = findViewById(R.id.scoreText);
         mainMenuButton = findViewById(R.id.mainMenuButton);
         buttonContainer = findViewById(R.id.buttonContainer);
-
-        // resultText 초기화 확인
-        if (resultText == null) {
-            Toast.makeText(this, "resultText 뷰를 찾을 수 없습니다. XML 파일을 확인하세요.", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
         // 돌아가기 버튼 숨기기 (게임 종료 후에만 표시)
         mainMenuButton.setVisibility(View.GONE);
@@ -137,6 +132,10 @@ public class ColormatchActivity extends AppCompatActivity {
     }
 
     private void showFinalResult() {
+        // 게임 종료 시 처리
+        TextView gameInstructions = findViewById(R.id.gameInstructions); // 게임 방법 텍스트
+        gameInstructions.setVisibility(View.GONE); // 게임 방법 텍스트 숨기기
+
         colorText.setText("게임 종료!");
         colorText.setTextColor(Color.BLACK); // 텍스트 색상을 검정색으로 설정
         resultText.setText("총 " + totalQuestions + "문제 중 " + score + "문제를 맞췄습니다.");
