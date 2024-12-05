@@ -22,9 +22,6 @@
             android:name=".SignMatchActivity"
             android:exported="false" />
         <activity
-            android:name=".ChoiceActivity"
-            android:exported="false" />
-        <activity
             android:name=".TodayresultActivity"
             android:exported="false" />
         <activity

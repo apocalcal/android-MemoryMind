@@ -6,6 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".CustomActivity">
 
     <LinearLayout
@@ -35,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="커스텀 질문 만들기" />
+            android:text="질문 만들기" />
         <!-- 질문 유형 선택 -->
         <RadioGroup
             android:id="@+id/questionTypeGroup"

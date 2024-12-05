@@ -140,7 +140,11 @@ public class MainActivity extends AppCompatActivity {
             editor.remove("username");
             editor.remove("user_id");
             editor.apply();
-            finish();
+
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // 스택 비우기
+            startActivity(intent);
+
             return true;
         }
         return super.onOptionsItemSelected(item);

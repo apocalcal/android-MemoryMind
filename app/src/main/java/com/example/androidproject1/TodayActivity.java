@@ -1,5 +1,6 @@
 package com.example.androidproject1;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -25,6 +26,7 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import android.view.inputmethod.InputMethodManager;
 
 public class TodayActivity extends AppCompatActivity {
     private List<Question> allQuestions = new ArrayList<>();
@@ -68,7 +70,7 @@ public class TodayActivity extends AppCompatActivity {
 
     private void addDefaultQuestions() {
         List<Question> defaultQuestions = List.of(
-                new Question("오늘의 날짜는\n몇 월 몇 일인가요?", "", null),
+                new Question("오늘의 날짜는\n몇 월 몇 일인가요? 예시) 12월 1일", "", null),
                 new Question("경찰서로 연결되는 번호는?", "112", List.of("119", "112", "114", "131")),
                 new Question("응급상황시 병원에 연결하려면?", "119", List.of("119", "112", "114", "131")),
                 new Question("1년은 며칠인가요?", "365일", List.of("362일", "365일", "366일", "364일")),
@@ -141,8 +143,8 @@ public class TodayActivity extends AppCompatActivity {
 
             // 버튼 레이아웃 설정
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            params.width = 440;
-            params.height = 440;
+            params.width = 400;
+            params.height = 400;
             params.columnSpec = GridLayout.spec(i % 2, 1f); // 열은 0 또는 1
             params.rowSpec = GridLayout.spec(i / 2, 1f); // 행은 0 또는 1
             params.setMargins(10, 10, 10, 10); // 버튼 간격
@@ -212,7 +214,6 @@ public class TodayActivity extends AppCompatActivity {
         startActivity(intent); // 결과 화면으로 이동
         finish(); // 현재 Activity 종료
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // 메뉴를 Toolbar에 추가

@@ -3,8 +3,12 @@ package com.example.androidproject1;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import java.util.Map;
 
 public class TodayresultActivity extends AppCompatActivity {
@@ -16,6 +20,11 @@ public class TodayresultActivity extends AppCompatActivity {
         TextView scoreTextView = findViewById(R.id.scoreTextView);
         TextView incorrectTextView = findViewById(R.id.incorrectTextView);
         TextView resultTextView = findViewById(R.id.resultTextView);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
 
         // 점수 및 틀린 문제 정보 받기
         Intent intent = getIntent();
@@ -36,5 +45,21 @@ public class TodayresultActivity extends AppCompatActivity {
         } else {
             resultTextView.setText("모든 문제를 맞췄습니다!");
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_cognitive, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_home) {
+            Intent intent = new Intent(TodayresultActivity.this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
