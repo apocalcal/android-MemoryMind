@@ -76,9 +76,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="돌아가기"
-            android:fontFamily="@font/hakgyoansimb"
+            android:fontFamily="@font/hakgyoansimr"
             android:textSize="20sp"
-            android:background="@color/deepblue"
+            android:background="@drawable/selectedbutton"
             android:textColor="@android:color/white"
             android:visibility="gone" />
     </LinearLayout>

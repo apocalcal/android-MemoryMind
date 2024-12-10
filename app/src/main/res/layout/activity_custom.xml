@@ -77,7 +77,7 @@
             style="@style/edittextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="질문을 입력하세요." />
+            android:hint="예시) 주로 진료받는 병원의 이름은? " />
         <!-- 정답 입력 -->
         <TextView
             android:id="@+id/answerText"
@@ -93,7 +93,7 @@
             style="@style/edittextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="정답을 입력하세요." />
+            android:hint="예시) 분당제생병원" />
         <!-- 객관식 옵션 입력 -->
         <LinearLayout
             android:id="@+id/objectiveOptionsLayout"

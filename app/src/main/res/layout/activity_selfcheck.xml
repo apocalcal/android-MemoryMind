@@ -20,77 +20,87 @@
             android:text="@string/app_name"
             android:fontFamily="@font/hakgyoansimb"
             android:textSize="26sp"
-            android:textColor="@color/black"
-            />
+            android:textColor="@color/black" />
     </androidx.appcompat.widget.Toolbar>
 
-
-    <TextView
-        style="@style/titleStyle"
+    <ScrollView
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_marginBottom="30dp"
-        android:text="치매 자가진단" />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/subtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="35sp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/hakgyoansimr"
-        android:layout_marginBottom="30dp"
-        android:gravity=""
-        android:text="질문이 표시됩니다." />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <!-- 선택 버튼 -->
-    <Button
-        android:id="@+id/option1"
-        style="@style/optionStyle"
-        android:background="@drawable/roundbutton2"
-        android:textSize="40sp"
-        android:layout_marginBottom="30dp"
-        android:text="옵션 1" />
+            <TextView
+                style="@style/titleStyle"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_marginBottom="30dp"
+                android:text="치매 자가진단" />
 
-    <Button
-        android:id="@+id/option2"
-        style="@style/optionStyle"
-        android:background="@drawable/roundbutton2"
-        android:textSize="40sp"
-        android:layout_marginBottom="30dp"
-        android:text="옵션 2" />
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/hakgyoansimr"
+                android:layout_marginBottom="30dp"
+                android:gravity=""
+                android:text="질문이 표시됩니다." />
 
-    <Button
-        android:id="@+id/option3"
-        style="@style/optionStyle"
-        android:background="@drawable/roundbutton2"
-        android:textSize="40sp"
-        android:layout_marginBottom="30dp"
-        android:text="옵션 3"
-        android:visibility="gone" />
+            <!-- 선택 버튼 -->
+            <Button
+                android:id="@+id/option1"
+                style="@style/optionStyle"
+                android:background="@drawable/roundbutton2"
+                android:textSize="40sp"
+                android:layout_marginBottom="30dp"
+                android:text="옵션 1" />
 
-    <Button
-        android:id="@+id/nextBtn"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:fontFamily="@font/hakgyoansimr"
-        android:background="@drawable/selectedbutton"
-        android:textColor="@color/white"
-        android:layout_marginTop="10dp"
-        android:textSize="35sp"
-        android:text="다음" />
+            <Button
+                android:id="@+id/option2"
+                style="@style/optionStyle"
+                android:background="@drawable/roundbutton2"
+                android:textSize="40sp"
+                android:layout_marginBottom="30dp"
+                android:text="옵션 2" />
 
-    <Button
-        android:id="@+id/resultBtn"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:fontFamily="@font/hakgyoansimr"
-        android:background="@drawable/selectedbutton"
-        android:textColor="@color/white"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp"
-        android:text="결과 확인하기"
-        android:visibility="gone" />
+            <Button
+                android:id="@+id/option3"
+                style="@style/optionStyle"
+                android:background="@drawable/roundbutton2"
+                android:textSize="40sp"
+                android:layout_marginBottom="30dp"
+                android:text="옵션 3"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/nextBtn"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/hakgyoansimr"
+                android:background="@drawable/selectedbutton"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:textSize="35sp"
+                android:text="다음" />
+
+            <Button
+                android:id="@+id/resultBtn"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/hakgyoansimr"
+                android:background="@drawable/selectedbutton"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:textSize="30sp"
+                android:text="결과 확인하기"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

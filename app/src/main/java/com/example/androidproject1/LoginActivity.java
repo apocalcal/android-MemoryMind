@@ -51,12 +51,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    private void saveLoginState(boolean isLoggedIn) {
-        SharedPreferences sharedPreferences = getSharedPreferences("login_prefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("is_logged_in", isLoggedIn);
-        editor.apply();
-    }
 
     private void loginUser(LoginRequest loginRequest) {
         ApiService apiService = ApiClient.getClient().create(ApiService.class);

@@ -38,15 +38,21 @@
         style="@style/subtitleStyle"
         android:text="아이디" />
 
+    <LinearLayout
+        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        >
     <EditText
         android:id="@+id/inputId"
         style="@style/edittextStyle"
         android:hint="사용할 아이디를 입력하세요"
+        android:layout_weight="2"
         />
 
     <Button
         android:id="@+id/checkBtn"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:background="@drawable/selectedbutton"
@@ -54,6 +60,7 @@
         android:fontFamily="@font/hakgyoansimr"
         android:textSize="20sp"
         android:text="중복확인" />
+    </LinearLayout>
 
     <TextView
         style="@style/subtitleStyle"
@@ -75,6 +82,27 @@
         android:fontFamily="@font/hakgyoansimr"
         android:textSize="20sp"
         android:text="가입하기" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:fontFamily="@font/hakgyoansimr"
+        android:text="이미 회원이신가요?"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/selectedbutton"
+        android:textColor="@color/white"
+        android:fontFamily="@font/hakgyoansimr"
+        android:textSize="20sp"
+        android:text="로그인하러 가기" />
 
 
 </LinearLayout>

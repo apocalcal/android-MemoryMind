@@ -18,7 +18,7 @@ import retrofit2.Response;
 public class JoinActivity extends AppCompatActivity {
 
     private EditText inputName, inputBirth, inputId, inputPw;
-    private Button checkBtn, doneBtn;
+    private Button checkBtn, doneBtn, loginBtn;
     private boolean isUsernameChecked = false;
     private Calendar calendar;
 
@@ -33,6 +33,7 @@ public class JoinActivity extends AppCompatActivity {
         inputPw = findViewById(R.id.inputPw);
         checkBtn = findViewById(R.id.checkBtn);
         doneBtn = findViewById(R.id.doneBtn);
+        loginBtn = findViewById(R.id.loginBtn);
         calendar = Calendar.getInstance();
 
         checkBtn.setOnClickListener(v -> {
@@ -53,6 +54,7 @@ public class JoinActivity extends AppCompatActivity {
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
                         JoinActivity.this,
+                        R.style.SpinnerDatePickerDialog,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -83,6 +85,14 @@ public class JoinActivity extends AppCompatActivity {
                 } else {
                     registerUser(new User(name, birth, username, password));
                 }
+            }
+        });
+
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(JoinActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
     }

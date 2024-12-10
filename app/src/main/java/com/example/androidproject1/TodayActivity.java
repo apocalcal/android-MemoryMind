@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
@@ -34,7 +35,6 @@ public class TodayActivity extends AppCompatActivity {
     private int score = 0;
     private int selectedAnswerIndex = -1; // 객관식 선택된 답변 인덱스
     private Map<Integer, String> incorrectAnswers = new HashMap<>(); // 틀린 문제 저장
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,13 +50,13 @@ public class TodayActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
-
         // 기본 질문 추가
         addDefaultQuestions();
         // 질문 데이터 로드
         loadQuestions(questionText, buttonContainer, subjectiveAnswer, nextBtn);
 
         nextBtn.setOnClickListener(v -> {
+            hideKeyboard(v);
             if (currentQuestionIndex < allQuestions.size() - 1) {
                 processAnswer(subjectiveAnswer);
                 currentQuestionIndex++;
@@ -66,6 +66,13 @@ public class TodayActivity extends AppCompatActivity {
                 showResults();
             }
         });
+    }
+
+    private void hideKeyboard(View view) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     private void addDefaultQuestions() {
@@ -128,7 +135,6 @@ public class TodayActivity extends AppCompatActivity {
         for (int i = 0; i < 4; i++) { // 보기 4개
             String option = options.get(i);
             final int index = i;
-
             // 버튼 생성
             Button button = new Button(this);
             button.setText(option);
@@ -137,10 +143,8 @@ public class TodayActivity extends AppCompatActivity {
             button.setGravity(Gravity.CENTER);
             button.setTextColor(Color.WHITE);
             button.setTextSize(32);
-
             // 기본 배경 설정 (drawable 파일 사용)
             button.setBackgroundResource(R.drawable.roundbutton2); // 기본 버튼 배경
-
             // 버튼 레이아웃 설정
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.width = 400;
@@ -149,7 +153,6 @@ public class TodayActivity extends AppCompatActivity {
             params.rowSpec = GridLayout.spec(i / 2, 1f); // 행은 0 또는 1
             params.setMargins(10, 10, 10, 10); // 버튼 간격
             button.setLayoutParams(params);
-
             // 버튼 클릭 이벤트
             button.setOnClickListener(v -> {
                 // 모든 버튼의 배경을 기본으로 초기화
@@ -161,12 +164,10 @@ public class TodayActivity extends AppCompatActivity {
                 selectedAnswerIndex = index; // 선택된 답변 저장
                 nextBtn.setVisibility(View.VISIBLE); // 다음 버튼 표시
             });
-
             // 버튼을 컨테이너에 추가
             buttonContainer.addView(button);
             optionButtons.add(button);
         }
-
         // 초기에는 "다음" 버튼 숨김
         nextBtn.setVisibility(View.GONE);
     }
@@ -220,7 +221,6 @@ public class TodayActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

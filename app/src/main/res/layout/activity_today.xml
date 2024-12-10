@@ -23,6 +23,10 @@
             />
     </androidx.appcompat.widget.Toolbar>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
     <TextView
         style="@style/titleStyle"
         android:text="오늘의 질문"
@@ -30,17 +34,12 @@
         android:textColor="@color/black"
         android:layout_marginBottom="20dp"
         />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp" />
-
         <TextView
             android:id="@+id/questionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/hakgyoansimr"
-            android:paddingBottom="16dp"
             android:textSize="28sp"
             android:text="질문이 여기에 표시됩니다."
             android:textColor="@color/black" />
@@ -60,17 +59,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="OO월 OO일(띄어쓰기 포함해주세요)"
+        android:inputType="text"
+        android:layout_marginTop="10dp"
+        android:imeOptions="actionDone"
         android:visibility="gone" />
 
     <Button
         android:id="@+id/nextBtn"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/selectedbutton"
         android:textColor="@color/white"
         android:fontFamily="@font/hakgyoansimr"
         android:textSize="28sp"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:text="다음" />
 </LinearLayout>

@@ -1,6 +1,8 @@
 package com.example.androidproject1;
 
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.view.Gravity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -10,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -59,7 +62,7 @@ public class SignMatchActivity extends AppCompatActivity {
         signsList.add(new SignItem("횡단금지", "sign04"));
         signsList.add(new SignItem("통행금지", "sign05"));
         signsList.add(new SignItem("자전거 통행금지", "sign06"));
-        signsList.add(new SignItem("정지", "sign07"));
+        signsList.add(new SignItem("공사중", "sign07"));
         signsList.add(new SignItem("위험", "sign08"));
         signsList.add(new SignItem("시속 30km제한", "sign09"));
         signsList.add(new SignItem("정지", "sign10"));
@@ -115,6 +118,7 @@ public class SignMatchActivity extends AppCompatActivity {
             // 이미지 크기 및 정렬 설정
             LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(300, 300);
             imageParams.setMargins(10, 10, 10, 20);
+            imageParams.gravity = Gravity.CENTER;
             signImage.setLayoutParams(imageParams);
             signImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
             signLayout.addView(signImage);
@@ -125,6 +129,15 @@ public class SignMatchActivity extends AppCompatActivity {
             answerText.setTextSize(18);
             answerText.setTypeface(getResources().getFont(R.font.hakgyoansimb)); // 폰트 설정
             answerText.setVisibility(View.VISIBLE); // 초기 표시
+
+            // 정렬 속성 추가
+            LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            textParams.gravity = Gravity.CENTER; // 텍스트를 가로 가운데 정렬
+            answerText.setLayoutParams(textParams);
+
             signLayout.addView(answerText);
             answerTexts.add(answerText);
 
@@ -159,6 +172,8 @@ public class SignMatchActivity extends AppCompatActivity {
 
         // 타이머로 정답 가리기
         timerText.setVisibility(View.VISIBLE);
+        Typeface typeface = getResources().getFont(R.font.hakgyoansimr);
+        timerText.setTypeface(typeface);
         handler.post(new Runnable() {
             int countdown = 5;
 

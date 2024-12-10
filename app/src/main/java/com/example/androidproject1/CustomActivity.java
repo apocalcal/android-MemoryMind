@@ -33,7 +33,6 @@ public class CustomActivity extends AppCompatActivity {
         questionEdit = findViewById(R.id.questionEdit);
         answerEdit = findViewById(R.id.answerEdit);
         saveBtn = findViewById(R.id.saveBtn);
-        backBtn = findViewById(R.id.backBtn);
         questionTypeGroup = findViewById(R.id.questionTypeGroup);
         objectiveOptionsLayout = findViewById(R.id.objectiveOptionsLayout);
 
